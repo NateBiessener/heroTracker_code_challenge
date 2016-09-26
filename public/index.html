@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>Hero Tracker</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
   </head>
-  <body>
-    tracker
+  <body ng-controller="heroController">
+    <p>Add a hero to the tracker</p>
+    <input type="text" placeholder="Alias" ng-model="heroAlias">
+    <input type="text" placeholder="First Name" ng-model="heroFirstName">
+    <input type="text" placeholder="Last Name" ng-model="heroLastName">
+    <input type="text" placeholder="City" ng-model="city">
+    <input type="text" placeholder="Power" ng-model="power">
+    <button type="button" ng-click="addHero()">Add Hero</button><br>
+    <button type="button" ng-click="showHeroes()">Show Tracked Heroes</button>
   </body>
 </html>
