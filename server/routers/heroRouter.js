@@ -41,4 +41,17 @@ router.post('/hero', function(req, res){
   });
 });
 
+router.delete('/hero', function(req, res){
+  console.log('in hero delete');
+  Hero.findByIdAndRemove(req.query.id, function(err, result){
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    else {
+      res.send(result);
+    }
+  });
+});
+
 module.exports = router;

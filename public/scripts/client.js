@@ -33,4 +33,11 @@ myApp.controller('heroController', ['$scope', '$http', function($scope, $http){
     }).then($scope.showHeroes);
   };
 
+  $scope.removeHero = function(id){
+    $http({
+      method: 'DELETE',
+      url: '/heroes/hero?id=' + id
+    }).then($scope.showHeroes);
+  };
+
 }]);

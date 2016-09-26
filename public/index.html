@@ -16,7 +16,9 @@
     <button type="button" ng-click="addHero()">Add Hero</button><br>
     <button type="button" ng-click="showHeroes()">Show Tracked Heroes</button>
     <div ng-repeat="hero in heroes">
-        {{hero.alias}}
+        <p>
+          {{hero.alias}} - Real Name is {{hero.first_name + ' ' + hero.last_name}}. Operates in {{hero.city}}. Powers inclue {{hero.power_name}}. <button type="button" ng-click=removeHero(hero._id)>Stop tracking</button>
+        </p>
     </div>
   </body>
 </html>
