@@ -12,7 +12,6 @@ myApp.controller('heroController', ['$scope', '$http', function($scope, $http){
     $scope.powers = result.data.paths.power_name.enumValues.map(function(index){
       return {power: index};
     });
-    // $scope.powers = result.data.paths.power_name.enumValues;
   });
 
   $scope.heroes = [];
@@ -28,19 +27,24 @@ myApp.controller('heroController', ['$scope', '$http', function($scope, $http){
   };
 
   $scope.addHero = function(){
-    var objectToSend = {
-      alias: $scope.heroAlias,
-      first_name: $scope.heroFirstName,
-      last_name: $scope.heroLastName,
-      city: $scope.city,
-      power_name: $scope.heroPower.power
-    };
-    console.log(objectToSend);
-    $http({
-      method:'POST',
-      url:'/heroes/hero',
-      data: objectToSend
-    }).then($scope.showHeroes);
+    if ($scope.heroAlias && $scope.heroFirstName && $scope.heroLastName && $scope.city && $scope.heroPower) {
+      var objectToSend = {
+        alias: $scope.heroAlias,
+        first_name: $scope.heroFirstName,
+        last_name: $scope.heroLastName,
+        city: $scope.city,
+        power_name: $scope.heroPower.power
+      };
+      console.log(objectToSend);
+      $http({
+        method:'POST',
+        url:'/heroes/hero',
+        data: objectToSend
+      }).then($scope.showHeroes);
+    }//end if
+    else {
+      alert('Please complete all fields to start tracking a hero');
+    }
   };
 
   $scope.removeHero = function(id){
