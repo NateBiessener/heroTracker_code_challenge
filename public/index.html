@@ -12,7 +12,9 @@
     <input type="text" placeholder="First Name" ng-model="heroFirstName">
     <input type="text" placeholder="Last Name" ng-model="heroLastName">
     <input type="text" placeholder="City" ng-model="city">
-    <input type="text" placeholder="Power" ng-model="power">
+    <label for="power"> Power:
+      <select ng-model="heroPower" ng-options="power.power for power in powers"></select>
+    </label>
     <button type="button" ng-click="addHero()">Add Hero</button><br>
     <button type="button" ng-click="showHeroes()">Show Tracked Heroes</button>
     <div ng-repeat="hero in heroes">

@@ -18,6 +18,10 @@ router.get('/hero', function(req, res){
   });
 });
 
+router.get('/powers', function(req, res){
+  res.send(Hero.schema);
+});
+
 router.post('/hero', function(req, res){
   console.log('in hero post');
   var newHero = new Hero ({

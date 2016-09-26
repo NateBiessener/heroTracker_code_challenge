@@ -6,7 +6,7 @@ var heroSchema = new Schema({
   first_name: String,
   last_name: String,
   city: String,
-  power_name: String
+  power_name: {type: String, enum: ['Invisibility', 'Flight', 'Super Speed', 'Heat Vision', 'Super Strength', 'Accelerated Healing', 'Power Blast', 'Animal Affinity']}
 });
 
 var Hero = mongoose.model('heroes', heroSchema);

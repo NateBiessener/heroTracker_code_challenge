@@ -5,6 +5,16 @@ var myApp = angular.module('myApp', []);
 myApp.controller('heroController', ['$scope', '$http', function($scope, $http){
   console.log('controller');
 
+  $http({
+    method:'GET',
+    url:'/heroes/powers'
+  }).then(function(result){
+    $scope.powers = result.data.paths.power_name.enumValues.map(function(index){
+      return {power: index};
+    });
+    // $scope.powers = result.data.paths.power_name.enumValues;
+  });
+
   $scope.heroes = [];
 
   $scope.showHeroes = function(){
@@ -23,7 +33,7 @@ myApp.controller('heroController', ['$scope', '$http', function($scope, $http){
       first_name: $scope.heroFirstName,
       last_name: $scope.heroLastName,
       city: $scope.city,
-      power_name: $scope.power
+      power_name: $scope.heroPower.power
     };
     console.log(objectToSend);
     $http({
