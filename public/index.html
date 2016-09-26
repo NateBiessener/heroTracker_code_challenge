@@ -15,5 +15,8 @@
     <input type="text" placeholder="Power" ng-model="power">
     <button type="button" ng-click="addHero()">Add Hero</button><br>
     <button type="button" ng-click="showHeroes()">Show Tracked Heroes</button>
+    <div ng-repeat="hero in heroes">
+        {{hero.alias}}
+    </div>
   </body>
 </html>
